@@ -24,7 +24,6 @@ public class Robot {
         for (Command command : commands) {
             builder.append(command.execute()).append('\n');
         }
-        builder.append("done");
         return builder.toString();
     }
 }

@@ -6,6 +6,7 @@ import edu.lab.hw4.commands.TurnRight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HW4Test {
     @Test
@@ -18,7 +19,7 @@ public class HW4Test {
                 move backward, steps: 10
                 turn left, angle: 100.0
                 turn right, angle: 100.0
-                done""";
+                """;
 
         String result = robot.executeCommandsList();
 
@@ -28,11 +29,10 @@ public class HW4Test {
     @Test
     public void emptyTest() {
         Robot robot = new Robot();
-        String expectingResult = "done";
 
         String result = robot.executeCommandsList();
 
-        assertEquals(expectingResult, result);
+        assertTrue(result.isEmpty());
     }
 
     @Test
@@ -40,10 +40,9 @@ public class HW4Test {
         Robot robot = new Robot();
         robot.nextCommand(new TurnRight(100)).nextCommand(new MoveBackward(10));
         robot.clearCommands();
-        String expectingResult = "done";
 
         String result = robot.executeCommandsList();
 
-        assertEquals(expectingResult, result);
+        assertTrue(result.isEmpty());
     }
 }
